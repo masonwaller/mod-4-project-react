@@ -7,7 +7,7 @@ export default class Registration extends Component {
     super(props);
 
     this.state = {
-      username: "",  
+      username: "",
       password: "",
       password_confirmation: "",
       registrationErrors: ""
@@ -17,17 +17,13 @@ export default class Registration extends Component {
   }
 
   handleSubmit(event) {
-    const {
-      username,
-      password,
-      password_confirmation
-    } = this.state;
+    const { username, password, password_confirmation } = this.state;
     axios
       .post(
-        "http://localhost:3001/users",
+        "https://peaceful-eyrie-96510.herokuapp.com/users",
         {
           user: {
-           username: username,
+            username: username,
             password: password,
             password_confirmation: password_confirmation
           }
@@ -36,7 +32,7 @@ export default class Registration extends Component {
       )
       .then(response => {
         if (response.data.status === "created") {
-          console.log("Registration data", response.data)
+          console.log("Registration data", response.data);
         }
       })
       .catch(error => {

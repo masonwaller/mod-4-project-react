@@ -21,7 +21,7 @@ export default class Document extends React.Component {
       password: event.target.password.value
     };
     console.log(user);
-    fetch(`http://localhost:3001/users`, {
+    fetch(`https://peaceful-eyrie-96510.herokuapp.com/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default class Document extends React.Component {
       username: event.target.username.value,
       password: event.target.password.value
     };
-    fetch(`http://localhost:3001/signup`, {
+    fetch(`https://peaceful-eyrie-96510.herokuapp.com/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,13 +61,15 @@ export default class Document extends React.Component {
       if (this.state.favorites.find(t => t.team === parseInt(team.team))) {
         alert("Already one of your favorites");
       } else {
-        console.log(this.state.favorites)
-        this.setState({ favorites: [...this.state.favorites, team] }, () => console.log(this.state.favorites));
+        console.log(this.state.favorites);
+        this.setState({ favorites: [...this.state.favorites, team] }, () =>
+          console.log(this.state.favorites)
+        );
         let user_team = {
           user_id: this.state.logged_in.user.user.id,
           team: team.team
         };
-        fetch(`http://localhost:3001/user_teams`, {
+        fetch(`https://peaceful-eyrie-96510.herokuapp.com/user_teams`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

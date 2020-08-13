@@ -18,7 +18,7 @@ export default class Login extends Component {
     const { username, password } = this.state;
     axios
       .post(
-        "http://localhost:3001/sessions",
+        "https://peaceful-eyrie-96510.herokuapp.com/sessions",
         {
           user: {
             username: username,
